@@ -1,0 +1,52 @@
+<div th:fragment="sidebar" class="sidebar-container">
+    <!-- Level 1: Nhóm chức năng -->
+    <div class="nav-level-1 mb-2">
+        <i class="bi bi-grid-fill me-2"></i> Tổng quan
+    </div>
+    <!-- Level 2: Đối tượng quản lý -->
+    <div class="ms-2">
+        <a th:href="@{/shop}" class="nav-link-custom">
+            <i class="bi bi-house-door me-2"></i> Trang chủ
+        </a>
+    </div>
+
+    <!-- Level 1: Nhóm chức năng -->
+    <div class="nav-level-1 mt-4 mb-2">
+        <i class="bi bi-box-seam-fill me-2"></i> Quản lý nghiệp vụ
+    </div>
+    
+    <!-- Level 2: Đối tượng quản lý -->
+    <div class="nav-level-2 mt-2 mb-1">
+        <i class="bi bi-layers me-2"></i> Quản lý sản phẩm
+    </div>
+    
+    <!-- Level 3: Chức năng CRUD -->
+    <div class="ms-3">
+        <a th:href="@{/shop/products}" class="nav-link-custom nav-level-3">
+            <i class="bi bi-list-stars me-2"></i> Danh sách
+        </a>
+        <a th:href="@{/shop/products/add}" class="nav-link-custom nav-level-3">
+            <i class="bi bi-plus-lg me-2"></i> Thêm mới
+        </a>
+        <!-- Các chức năng khác chỉ hiển thị khi có ID cụ thể (giả lập) -->
+        <div class="nav-link-custom nav-level-3 opacity-50">
+            <i class="bi bi-pencil-square me-2"></i> Cập nhật
+        </div>
+        <div class="nav-link-custom nav-level-3 opacity-50">
+            <i class="bi bi-trash me-2"></i> Xóa
+        </div>
+    </div>
+
+    <!-- Level 1: Nhóm chức năng -->
+    <div class="nav-level-1 mt-4 mb-2">
+        <i class="bi bi-people-fill me-2"></i> Hệ thống
+    </div>
+    <div class="ms-2">
+        <a href="#" class="nav-link-custom">
+            <i class="bi bi-person-gear me-2"></i> Tài khoản
+        </a>
+        <a href="#" class="nav-link-custom">
+            <i class="bi bi-shield-check me-2"></i> Phân quyền
+        </a>
+    </div>
+</div>

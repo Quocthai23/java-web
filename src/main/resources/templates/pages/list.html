@@ -1,0 +1,73 @@
+<div th:fragment="content">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0 text-primary">Danh sách sản phẩm</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a th:href="@{/shop}">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+                </ol>
+            </nav>
+        </div>
+        <a th:href="@{/shop/products/add}" class="btn btn-primary btn-lg shadow-sm">
+            <i class="bi bi-plus-circle me-2"></i> Thêm mới sản phẩm
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4" style="width: 80px;">STT</th>
+                            <th>Ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Phân loại</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th class="text-end pe-4">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="product, iterStat : ${products}">
+                            <td class="ps-4 fw-bold text-muted" th:text="${iterStat.count}">1</td>
+                            <td>
+                                <img th:src="${product.imageUrl}" class="rounded shadow-sm" style="width: 48px; height: 48px; object-fit: cover;" alt="product">
+                            </td>
+                            <td>
+                                <div class="fw-bold text-dark" th:text="${product.name}">Tên sản phẩm</div>
+                                <small class="text-muted" th:text="'ID: #' + ${product.id}"></small>
+                            </td>
+                            <td>
+                                <span class="badge bg-info-subtle text-info px-3 py-2 rounded-pill" th:text="${product.category}">Áo</span>
+                            </td>
+                            <td>
+                                <span class="fw-semibold text-primary" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' ₫'">0</span>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border" th:text="${product.quantity} + ' cái'">10</span>
+                            </td>
+                            <td class="text-end pe-4">
+                                <div class="btn-group">
+                                    <a th:href="@{/shop/products/edit/{id}(id=${product.id})}" class="btn btn-sm btn-outline-primary" title="Chỉnh sửa">
+                                        <i class="bi bi-pencil-square"></i> Sửa
+                                    </a>
+                                    <a th:href="@{/shop/products/delete/{id}(id=${product.id})}" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                        <i class="bi bi-trash"></i> Xóa
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(products)}">
+                            <td colspan="7" class="text-center py-5">
+                                <i class="bi bi-inbox fs-1 text-muted d-block mb-3"></i>
+                                <span class="text-muted">Chưa có sản phẩm nào trong hệ thống.</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

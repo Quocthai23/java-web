@@ -1,0 +1,33 @@
+<div th:fragment="content">
+    <div class="card border-danger shadow-sm">
+        <div class="card-header bg-danger text-white">
+            <h5 class="card-title mb-0"><i class="bi bi-exclamation-triangle-fill me-2"></i> Xác nhận xóa</h5>
+        </div>
+        <div class="card-body">
+            <p class="lead">Bạn có chắc chắn muốn xóa sản phẩm này không?</p>
+            <div class="alert alert-warning">
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <img th:src="${product.imageUrl}" class="img-thumbnail" style="max-height: 100px;" alt="Product image">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 th:text="${product.name}">Tên sản phẩm</h4>
+                        <p class="mb-0 text-muted">Mã sản phẩm: <span th:text="${product.id}">0</span></p>
+                        <p class="mb-0">Giá: <strong th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">0</strong></p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-danger small"><i class="bi bi-info-circle me-1"></i> Lưu ý: Hành động này không thể hoàn tác.</p>
+        </div>
+        <div class="card-footer bg-light d-flex justify-content-end">
+            <a th:href="@{/shop/products}" class="btn btn-outline-secondary me-2">
+                <i class="bi bi-x-lg me-1"></i> Hủy bỏ
+            </a>
+            <form th:action="@{/shop/products/delete/{id}(id=${product.id})}" method="post">
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash me-1"></i> Xác nhận xóa
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

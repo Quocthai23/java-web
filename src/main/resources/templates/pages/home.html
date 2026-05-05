@@ -1,0 +1,49 @@
+<div th:fragment="content">
+    <div class="p-5 mb-4 bg-light rounded-4 border shadow-sm">
+        <div class="container-fluid py-5">
+            <h1 class="display-4 fw-bold text-primary" th:text="${title}">Chào mừng</h1>
+            <p class="col-md-10 fs-4 text-muted" th:text="${subject}">Khám phá hệ thống.</p>
+            <hr class="my-4">
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-up">
+                        <div class="card-body">
+                            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-primary bg-gradient text-white fs-4 mb-3 rounded-3 p-3">
+                                <i class="bi bi-box-seam"></i>
+                            </div>
+                            <h4 class="fw-semibold">Quản lý sản phẩm</h4>
+                            <p class="text-muted">Xem danh sách, thêm mới, cập nhật và xóa các sản phẩm trong hệ thống cửa hàng.</p>
+                            <a th:href="@{/shop/products}" class="btn btn-primary">Truy cập ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-success bg-gradient text-white fs-4 mb-3 rounded-3 p-3">
+                                <i class="bi bi-person-badge"></i>
+                            </div>
+                            <h4 class="fw-semibold">Thông tin sinh viên</h4>
+                            <ul class="list-unstyled text-muted">
+                                <li><strong>Họ tên:</strong> Nguyễn Quốc Thái</li>
+                                <li><strong>Mã SV:</strong> 2022606184</li>
+                                <li><strong>Lớp:</strong> Java Web Programming</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-info bg-gradient text-white fs-4 mb-3 rounded-3 p-3">
+                                <i class="bi bi-journal-text"></i>
+                            </div>
+                            <h4 class="fw-semibold">Mục tiêu bài Lab</h4>
+                            <p class="text-muted">Thiết kế Layout, Sidebar 3 cấp và hoàn thiện giao diện CRUD cơ bản cho ứng dụng Web.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
